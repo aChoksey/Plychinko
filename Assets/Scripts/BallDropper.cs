@@ -22,7 +22,7 @@ public class BallDropper : MonoBehaviour
         // create ball at that position
         Instantiate(BallPrefab, spawnPosition,
             Quaternion.identity); //what to create, where to create it, how to rotate it ?
-
+        
     }
 
     private Vector3 GetSpawnPosition()
