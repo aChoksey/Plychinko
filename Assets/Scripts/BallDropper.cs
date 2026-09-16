@@ -20,9 +20,19 @@ public class BallDropper : MonoBehaviour
         Vector3 spawnPosition = GetSpawnPosition();
         
         // create ball at that position
-        Instantiate(BallPrefab, spawnPosition,
+        GameObject ball = Instantiate(BallPrefab, spawnPosition,
             Quaternion.identity); //what to create, where to create it, how to rotate it ?
         
+        //Add Horizontal Force
+        AddRandomForce(ball);
+    }
+
+    private void AddRandomForce(GameObject ball)
+    {
+        Rigidbody2D rigidbody = ball.GetComponent<Rigidbody2D>();
+
+        float RandomHorizontalForce = Random.Range(-4f, 4f);
+        rigidbody.AddForce(new Vector2(RandomHorizontalForce, 0), ForceMode2D.Impulse);
     }
 
     private Vector3 GetSpawnPosition()
